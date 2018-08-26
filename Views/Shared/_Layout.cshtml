@@ -33,7 +33,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li><a asp-area="" asp-controller="ComicBooks" asp-action="Detail">Comic Book Gallery</a></li>
+                    <li><a asp-area="" asp-controller="ComicBooks" asp-action="Index">Comic Book Gallery</a></li>
                     <!--<li>@Html.ActionLink("Home", "Index", "Links")</li>-->
                 </ul>
             </div>
@@ -41,6 +41,15 @@
     </nav>
 
     <partial name="_CookieConsentPartial" />
+
+    @if(ViewBag.ShowBackBar != null && ViewBag.ShowBackBar)
+    {
+        <div class="backbar">
+            <div class="container">
+                @Html.ActionLink("Return to List", "Index", null, new { @class = "btn btn-default"})              
+            </div>
+        </div>
+    }
 
     <div class="container body-content">
         @RenderBody()
